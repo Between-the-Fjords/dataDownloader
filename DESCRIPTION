@@ -1,0 +1,21 @@
+Package: downloader
+Title: Downloads Files From Repositories If Hash Has Changed
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Richard",
+           family = "Telford",
+           role = c("aut", "cre"),
+           email = "richard.telford@uib.no",
+           comment = c(ORCID = "0000-0001-9826-3076"))
+Description: Downloads data if its hash has changed. Currently implementing osf.io and dropbox.com.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/Between-the-Fjords/downloader
+Bugs: https://github.com/Between-the-Fjords/downloader/issues
+Imports: 
+    glue,
+    fs,
+    osfr,
+    digest
+RoxygenNote: 6.1.1
