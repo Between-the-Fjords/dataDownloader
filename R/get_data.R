@@ -4,11 +4,15 @@
 #' @param path character, output path. Defaults to working directory
 #' @details 
 #' logic
-# !file exists - download
-# file exists & !matching hashes - download
+#' !file exists - download
+#' file exists & !matching hashes - download
+#' @examples 
+#' get_file(node = "p7ayb", file = "Analysis notes.txt", path = "data")
+
+
 
 #' @importFrom glue glue
-#' @importFrom fs file_exists
+#' @importFrom fs file_exists dir_exists dir_create
 #' @importFrom digest digest
 #' @importFrom osfr osf_download  osf_retrieve_file osf_retrieve_node osf_ls_files
 #' @importFrom magrittr %>%
@@ -17,6 +21,12 @@
 #' @export
 
 get_file <- function(node, file, path  = "."){
+  
+  #make path if required
+  if(!dir_exists(path)){
+    message(glue("Creating missing path '{path}'"))
+    dir_create(path)
+  }
   filepath <- file.path(path, file)
 
   #get osf id of file
@@ -28,7 +38,7 @@ get_file <- function(node, file, path  = "."){
   
   #check file found
   if(length(file_id) == 0){
-    stop(glue("{file} not found in node {node}."))
+    stop(glue("'{file}' not found in node '{node}'."))
   }
   
   
@@ -51,6 +61,8 @@ get_file <- function(node, file, path  = "."){
   
   #download
   osf_download(meta_file, path = filepath)
+  
+  #check success
   
 }
 
