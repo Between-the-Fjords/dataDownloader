@@ -1,2 +1,5 @@
 LICENSE
 downloader.Rproj
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
