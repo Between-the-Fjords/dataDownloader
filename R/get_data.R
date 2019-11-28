@@ -63,7 +63,7 @@ get_file <- function(node, file, path  = "."){
   osf_download(meta_file, path = filepath)
   
   #check success
-  
+  message(glue("'{file}' downloaded succesfully"))
 }
 
 
