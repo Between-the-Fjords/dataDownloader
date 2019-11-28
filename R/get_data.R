@@ -30,13 +30,15 @@ get_file <- function(node, file, path  = "."){
     
     #get hash of local file
     hash <- digest(file = filepath)
+    hash_new <- meta_file$meta[[1]]$attributes$extra$hashes$md5
     
     #if hash matches
-    if(identical(hash, newhash)){
+    if(identical(hash, hash_new)){
       message(glue("{file} already up to date."))
       return()
     }
   }  
+  
   #download
   osf_download(meta_file, path = pathfile)
   
