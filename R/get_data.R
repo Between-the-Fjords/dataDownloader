@@ -12,6 +12,8 @@
 #' @importFrom digest digest
 #' @importFrom osfr osf_download  osf_retrieve_file osf_retrieve_node osf_ls_files
 #' @importFrom magrittr %>%
+#' @importFrom dplyr filter
+#' @importFrom rlang .data
 #' @export
 
 get_file <- function(node, file, path  = "."){
@@ -22,7 +24,7 @@ get_file <- function(node, file, path  = "."){
     osf_ls_files()
   
   #magic
-  file_id <- filter(meta_node, name == file)$meta[[1]]$attributes$guid 
+  file_id <- filter(meta_node, .data$name == file)$meta[[1]]$attributes$guid 
   
   #check file found
   if(length(file_id) == 0){
@@ -48,7 +50,7 @@ get_file <- function(node, file, path  = "."){
   }  
   
   #download
-  osf_download(meta_file, path = pathfile)
+  osf_download(meta_file, path = filepath)
   
 }
 

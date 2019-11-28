@@ -2,5 +2,12 @@
 
 export(get_file)
 importFrom(digest,digest)
+importFrom(dplyr,filter)
 importFrom(fs,file_exists)
 importFrom(glue,glue)
+importFrom(magrittr,"%>%")
+importFrom(osfr,osf_download)
+importFrom(osfr,osf_ls_files)
+importFrom(osfr,osf_retrieve_file)
+importFrom(osfr,osf_retrieve_node)
+importFrom(rlang,.data)

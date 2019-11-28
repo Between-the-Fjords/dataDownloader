@@ -4,9 +4,11 @@
 \alias{get_file}
 \title{get_data}
 \usage{
-get_file(file, path = ".")
+get_file(node, file, path = ".")
 }
 \arguments{
+\item{node}{character, osf node}
+
 \item{file}{character, name of file to download}
 
 \item{path}{character, output path. Defaults to working directory}

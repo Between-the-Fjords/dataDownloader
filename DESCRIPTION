@@ -17,5 +17,8 @@ Imports:
     glue,
     fs,
     osfr,
-    digest
+    digest,
+    dplyr,
+    magrittr,
+    rlang
 RoxygenNote: 6.1.1
