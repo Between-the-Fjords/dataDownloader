@@ -10,17 +10,25 @@
 #' @importFrom glue glue
 #' @importFrom fs file_exists
 #' @importFrom digest digest
-#' @importFrom osfr osf_download  osf_retrieve_file osf_retrieve_node
+#' @importFrom osfr osf_download  osf_retrieve_file osf_retrieve_node osf_ls_files
+#' @importFrom magrittr %>%
 #' @export
 
 get_file <- function(node, file, path  = "."){
   filepath <- file.path(path, file)
 
   #get osf id of file
-  meta_node <- osf_retrieve_node(node)
+  meta_node <- osf_retrieve_node(node) %>% 
+    osf_ls_files()
   
   #magic
-  file_id <- "magic"
+  file_id <- filter(meta_node, name == file)$meta[[1]]$attributes$guid 
+  
+  #check file found
+  if(length(file_id) == 0){
+    stop(glue("{file} not found in node {node}."))
+  }
+  
   
   #get new meta_data
   meta_file <- osf_retrieve_file(file_id)
