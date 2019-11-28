@@ -18,4 +18,9 @@ get_data
 }
 \details{
 logic
+!file exists - download
+file exists & !matching hashes - download
+}
+\examples{
+get_file(node = "p7ayb", file = "Analysis notes.txt", path = "data")
 }
