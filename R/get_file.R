@@ -1,5 +1,6 @@
 #' get_data
 #' @param node character, osf node
+#' @param remote_path character, remote path to file
 #' @param file character, name of file to download
 #' @param path character, output path. Defaults to working directory
 #' @details 
@@ -20,10 +21,13 @@
 #' @importFrom rlang .data
 #' @export
 
-get_file <- function(node, file, path  = "."){
+get_file <- function(node, remote_path = NULL, file, path  = "."){
   
   #make path if required
   if(!dir_exists(path)){
+    if(file_exists(path)){
+      stop("Cannot create directory '{path}' as file with this name already exists.")
+    }
     message(glue("Creating missing path '{path}'"))
     dir_create(path)
   }
@@ -31,7 +35,7 @@ get_file <- function(node, file, path  = "."){
 
   #get osf id of file
   meta_node <- osf_retrieve_node(node) %>% 
-    osf_ls_files()
+    osf_ls_files(path = remote_path)
   
   #magic
   file_id <- filter(meta_node, .data$name == file)$meta[[1]]$attributes$guid 

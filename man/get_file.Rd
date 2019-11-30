@@ -4,10 +4,12 @@
 \alias{get_file}
 \title{get_data}
 \usage{
-get_file(node, file, path = ".")
+get_file(node, remote_path = NULL, file, path = ".")
 }
 \arguments{
 \item{node}{character, osf node}
+
+\item{remote_path}{character, remote path to file}
 
 \item{file}{character, name of file to download}
 
