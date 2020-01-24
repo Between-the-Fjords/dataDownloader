@@ -64,7 +64,7 @@ get_file <- function(node, remote_path = NULL, file, path  = "."){
   }  
   
   #download
-  osf_download(meta_file, path = filepath)
+  osf_download(meta_file, path = path)
   
   #check success
   message(glue("'{file}' downloaded succesfully"))
