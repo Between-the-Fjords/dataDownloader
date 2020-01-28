@@ -16,9 +16,11 @@ Bugs: https://github.com/Between-the-Fjords/downloader/issues
 Imports: 
     glue,
     fs,
-    osfr,
+    osfr (>= 0.2.4),
     digest,
     dplyr,
     magrittr,
     rlang
 RoxygenNote: 6.1.1
+Remotes:  
+    CenterForOpenScience/osfr
