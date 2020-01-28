@@ -1,4 +1,4 @@
-Package: downloader
+Package: dataDownloader
 Title: Downloads Files From Repositories If Hash Has Changed
 Version: 0.0.0.9000
 Authors@R: 
@@ -11,8 +11,8 @@ Description: Downloads data if its hash has changed. Currently implementing osf.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/Between-the-Fjords/downloader
-Bugs: https://github.com/Between-the-Fjords/downloader/issues
+URL: https://github.com/Between-the-Fjords/dataDownloader
+Bugs: https://github.com/Between-the-Fjords/dataDownloader/issues
 Imports: 
     glue,
     fs,
@@ -21,6 +21,6 @@ Imports:
     dplyr,
     magrittr,
     rlang
-RoxygenNote: 6.1.1
-Remotes:  
+RoxygenNote: 7.0.2
+Remotes: 
     CenterForOpenScience/osfr

@@ -22,9 +22,9 @@ Assist downloading datafiles from [osf.io](osf.io). Other data sources may be ad
 
 ## Installation
 
-You can install `downloader` from [GitHub](https://github.com/) with:
+You can install `dataDownloader` from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Between-the-Fjords/downloader")
+devtools::install_github("Between-the-Fjords/dataDownloader")
 ```
