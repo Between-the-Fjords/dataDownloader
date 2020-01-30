@@ -3,6 +3,7 @@
 #' @param remote_path character, remote path to file
 #' @param file character, name of file to download
 #' @param path character, output path. Defaults to working directory
+#' @param conflicts What to do if a file already exists. Default is "overwrite" see \code{\link[osfr]{osf_download}} for other options.
 #' @details 
 #' logic
 #' !file exists - download
@@ -21,7 +22,7 @@
 #' @importFrom rlang .data
 #' @export
 
-get_file <- function(node, remote_path = NULL, file, path  = "."){
+get_file <- function(node, remote_path = NULL, file, path  = ".", conflicts = "overwrite"){
   
   #make path if required
   if(!dir_exists(path)){
@@ -63,7 +64,7 @@ get_file <- function(node, remote_path = NULL, file, path  = "."){
   }  
   
   #download
-  osf_download(meta_file, path = path)
+  osf_download(meta_file, path = path, conflicts = conflicts)
   
   #check success
   message(glue("'{file}' downloaded succesfully"))

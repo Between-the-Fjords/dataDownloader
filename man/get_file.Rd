@@ -4,7 +4,7 @@
 \alias{get_file}
 \title{get_data}
 \usage{
-get_file(node, remote_path = NULL, file, path = ".")
+get_file(node, remote_path = NULL, file, path = ".", conflicts = "overwrite")
 }
 \arguments{
 \item{node}{character, osf node}
@@ -14,6 +14,8 @@ get_file(node, remote_path = NULL, file, path = ".")
 \item{file}{character, name of file to download}
 
 \item{path}{character, output path. Defaults to working directory}
+
+\item{conflicts}{What to do if a file already exists. Default is "overwrite" see \code{\link[osfr]{osf_download}} for other options.}
 }
 \description{
 get_data
