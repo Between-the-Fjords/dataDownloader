@@ -38,16 +38,15 @@ get_file <- function(node, remote_path = NULL, file, path  = "."){
     osf_ls_files(path = remote_path)
   
   #magic
-  file_id <- filter(meta_node, .data$name == file)$meta[[1]]$attributes$guid 
+  file_id <- filter(meta_node, .data$name == file) 
   
   #check file found
-  if(length(file_id) == 0){
-    stop(glue("'{file}' not found in node '{node}'."))
+  if(nrow(file_id) == 0){
+    stop(glue("'{file}' not found in node '{node}'. Check you are looking in the correct folder."))
   }
   
-  
   #get new meta_data
-  meta_file <- osf_retrieve_file(file_id)
+  meta_file <- osf_retrieve_file(file_id$meta[[1]]$attributes$guid)
     
   #check local file exists
   if(file_exists(filepath)){
