@@ -1,6 +1,6 @@
 Package: dataDownloader
 Title: Downloads Files From Repositories If Hash Has Changed
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
     person(given = "Richard",
            family = "Telford",
@@ -16,11 +16,9 @@ Bugs: https://github.com/Between-the-Fjords/dataDownloader/issues
 Imports: 
     glue,
     fs,
-    osfr (>= 0.2.4),
     digest,
     dplyr,
     magrittr,
-    rlang
+    rlang,
+    osfr
 RoxygenNote: 7.0.2
-Remotes: 
-    CenterForOpenScience/osfr
