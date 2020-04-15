@@ -59,7 +59,7 @@ get_file <- function(node, remote_path = NULL, file, path  = ".", conflicts = "o
     #if hash matches
     if(identical(hash, hash_new)){
       message(glue("{file} already up to date."))
-      return()
+      return(invisible(filepath))
     }
   }  
   
@@ -68,6 +68,8 @@ get_file <- function(node, remote_path = NULL, file, path  = ".", conflicts = "o
   
   #check success
   message(glue("'{file}' downloaded succesfully"))
+  
+  return(invisible(filepath))
 }
 
 
