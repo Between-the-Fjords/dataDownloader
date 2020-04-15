@@ -48,14 +48,12 @@ need_update <- function(node, remote_path = NULL, file, path  = "."){
     
     #Check hash matches
     !identical(hash, hash_new) # needs updating if not identical
-  }
-  else{
-    FALSE
-  }
+  } 
+  
   needs_updating
-  }  
+}  
   
 
-}
+
 
 
