@@ -36,7 +36,7 @@ get_file <- function(node, remote_path = NULL, file, path  = ".", conflicts = "o
 
   #get osf id of file
   meta_node <- osf_retrieve_node(node) %>% 
-    osf_ls_files(path = remote_path)
+    osf_ls_files(path = remote_path, n_max = Inf)
   
   #magic
   file_id <- filter(meta_node, .data$name == file) 
